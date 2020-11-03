@@ -1,6 +1,6 @@
 # Проект 4+: Место-реакт
 
-# https://github.com/Etsugi/mesto-react.git
+# https://etsugi.github.io/mesto-react/
 
 Данный проект - результат реструктуризации проекта Mesto с использованием инструментария react.
 

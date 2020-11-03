@@ -55,14 +55,12 @@ function App() {
         isOpen={isEditProfilePopupOpen}
         onClose={closeAllPopups}
       >
-        <>
           <input type="text" name="name" placeholder="Имя" minLength="2" maxLength="40"
             className="popup__input popup__input_name" required />
           <span className='popup__input_error' id='name-input-error'></span>
           <input type="text" name="about" placeholder="Описание" minLength="2" maxLength="200"
             className="popup__input popup__input_description" required />
           <span className='popup__input_error' id='about-input-error'></span>
-        </>
       </PopupWithForm>
       <PopupWithForm
         name="edit-avatar-profile"
@@ -71,11 +69,9 @@ function App() {
         isOpen={isEditAvatarPopupOpen}
         onClose={closeAllPopups}
       >
-        <>
           <input type="url" name="avatar" placeholder="Ссылка на картинку"
             className="popup__input popup__input_source" required />
           <span className='popup__input_error' id='avatar-input-error'></span>
-        </>
       </PopupWithForm>
       <PopupWithForm
         name="add-card"
@@ -84,20 +80,17 @@ function App() {
         isOpen={isAddPlacePopupOpen}
         onClose={closeAllPopups}
       >
-        <>
           <input type="text" name="title" placeholder="Название" minLength="1" maxLength="30"
             className="popup__input popup__input_title" required />
           <span className='popup__input_error' id='title-input-error'></span>
           <input type="url" name="source" placeholder="Ссылка на картинку"
             className="popup__input popup__input_source" required />
           <span className='popup__input_error' id='source-input-error'></span>
-        </>
       </PopupWithForm>
       <PopupWithForm
         name="confirm"
         title="Вы уверены?"
         buttonText="Да"
-  
         onClose={closeAllPopups}
       >
       </PopupWithForm>
