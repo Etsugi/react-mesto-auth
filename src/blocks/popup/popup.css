@@ -1,0 +1,28 @@
+@import url("./__overlay/popup__overlay.css");
+@import url("./__form/popup__form.css");
+@import url("./__form-heading/popup__form-heading.css");
+@import url("./__input/popup__input.css");
+@import url("./__input/_name/popup__input_name.css");
+@import url("./__input/_description/popup__input_description.css");
+@import url("./__input/_title/popup__input_title.css");
+@import url("./__input/_source/popup__input_source.css");
+@import url("./__input/_error/popup__input_error.css");
+@import url("./__input/_error/popup__input_error-active.css");
+@import url("./__save-button/popup__save-button.css");
+@import url("./__save-button/_disabled/popup__save-button_disabled.css");
+@import url("./__close-button/popup__close-button.css");
+@import url("./__overlay/popup__overlay_for-image.css");
+@import url("./__image-container/popup__image-container.css");
+@import url("./__image/popup__image.css");
+@import url("./__image-description/popup__image-description.css");
+
+.popup {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.1s ease-in-out, opacity 0.1s ease-in-out;
+}

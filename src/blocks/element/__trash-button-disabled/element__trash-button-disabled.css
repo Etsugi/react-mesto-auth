@@ -1,0 +1,4 @@
+.element__trash-button-disabled {
+  display: none;
+  visibility: hidden;
+}
