@@ -52,8 +52,8 @@ class Api {
       method: 'POST',
       headers: this._headers,
       body: JSON.stringify({
-        name: data.title,
-        link: data.source
+        name: data.name,
+        link: data.link
       })
     }).then((res) => {
       return this._getResponseData(res);
@@ -71,8 +71,17 @@ class Api {
     })
   }
 
-  likeCard(data) {
-    return fetch(`${this._url}/cards/likes/${data._id}`, {
+  changeLikeCardStatus(cardId, isLiked) {
+    if(isLiked) {
+      return this.disLikeCard(cardId);
+    }
+    else {
+      return this.likeCard(cardId);
+    }
+  }
+
+  likeCard(cardId) {
+    return fetch(`${this._url}/cards/likes/${cardId}`, {
       method: 'PUT',
       headers: this._headers,
     }).then((res) => {
@@ -80,8 +89,8 @@ class Api {
     })
   }
 
-  disLikeCard(data) {
-    return fetch(`${this._url}/cards/likes/${data._id}`, {
+  disLikeCard(cardId) {
+    return fetch(`${this._url}/cards/likes/${cardId}`, {
       method: 'DELETE',
       headers: this._headers,
     }).then((res) => {
@@ -96,9 +105,9 @@ class Api {
     else return Promise.reject(`Ошибка: ${res.status}`);
   }
 
-  getAllData() {
+  /*getAllData() {
     return Promise.all([this.getUserInfo(), this.getCards()]);
-  }
+  }*/
 }
 
 const api = new Api({
