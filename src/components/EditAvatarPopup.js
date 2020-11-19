@@ -1,16 +1,14 @@
 import React from 'react';
 import PopupWithForm from "./PopupWithForm.js";
-import { ConfirmButtonContext } from './contexts/CurrentUserContext.js';
 
 function EditAvatarPopup(props) {
   const avatarRef = React.useRef();
-  let buttonContext = React.useContext(ConfirmButtonContext);
   const [buttonText, setButtonText] = React.useState('');
 
   React.useEffect(() => {
     avatarRef.current.value = '';
     setButtonText('Сохранить');
-  }, [buttonContext]); 
+  }, [props.isOpen]); 
 
   function handleSubmit(e) {
     e.preventDefault();

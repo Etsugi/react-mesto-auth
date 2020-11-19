@@ -1,12 +1,12 @@
 import React from 'react';
 import Card from "./Card.js";
-import { CurrentUserContext } from './contexts/CurrentUserContext.js';
+import { CurrentUserContext } from '../contexts/CurrentUserContext.js';
 
 function Main(props) {
   const user = React.useContext(CurrentUserContext);
   
   return (
-    <main className="content content-disabled">
+    <main className={props.profile}>
       <section className="profile">
         <div className="profile__avatar">
           <img className="profile__avatar-image" alt="Фото профиля" src={`${user.avatar}`} />

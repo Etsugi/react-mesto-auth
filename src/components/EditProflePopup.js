@@ -1,10 +1,9 @@
 import React from 'react';
 import PopupWithForm from "./PopupWithForm.js";
-import { CurrentUserContext, ConfirmButtonContext } from './contexts/CurrentUserContext.js';
+import { CurrentUserContext } from '../contexts/CurrentUserContext.js';
 
 function EditProfilePopup(props) {
   const user = React.useContext(CurrentUserContext);
-  let buttonContext = React.useContext(ConfirmButtonContext);
   const [name, setName] = React.useState('');
   const [description, setDescription] = React.useState('');
   const [buttonText, setButtonText] = React.useState('');
@@ -18,7 +17,7 @@ function EditProfilePopup(props) {
     setName(user.name);
     setDescription(user.about);
     setButtonText('Сохранить');
-  }, [buttonContext]); 
+  }, [props.isOpen]); 
 
   function handleNameChange(e) {
     setName(e.target.value);

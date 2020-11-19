@@ -1,4 +1,4 @@
-let now = new Date().getFullYear();
+const now = new Date().getFullYear();
 
 function Footer() {
   return (

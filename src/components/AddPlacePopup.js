@@ -1,9 +1,7 @@
 import React from 'react';
 import PopupWithForm from "./PopupWithForm.js";
-import { ConfirmButtonContext } from './contexts/CurrentUserContext.js';
 
 function AddPlacePopup(props) {
-  let buttonContext = React.useContext(ConfirmButtonContext);
   const [title, setTitle] = React.useState('');
   const [link, setLink] = React.useState('');
   const [buttonText, setButtonText] = React.useState('');
@@ -12,7 +10,7 @@ function AddPlacePopup(props) {
     setTitle('');
     setLink('');
     setButtonText('Создать');
-  }, [buttonContext]); 
+  }, [props.isOpen]); 
 
   function handleSetTitle(e) {
     setTitle(e.target.value);

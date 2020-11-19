@@ -1,14 +1,12 @@
 import React from 'react';
 import PopupWithForm from "./PopupWithForm.js";
-import { ConfirmButtonContext } from './contexts/CurrentUserContext.js';
 
 function ConfirmPopup(props) {
-  let buttonContext = React.useContext(ConfirmButtonContext);
   const [buttonText, setButtonText] = React.useState('');
 
   React.useEffect(() => {
     setButtonText('Да');
-  }, [buttonContext]); 
+  }, [props.isOpen]); 
 
   function handleSubmit(e) {
     e.preventDefault();
