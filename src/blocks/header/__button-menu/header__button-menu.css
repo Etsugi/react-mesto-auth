@@ -1,0 +1,26 @@
+.header__button-menu {
+  position: absolute;
+  right: 30px;
+  margin: 0;
+  padding: 0;
+  display: none;
+  border: none;
+  text-decoration: none;
+  transition: opacity .1s ease-in-out, background-image .1s ease-in-out;
+  background-color: black;
+}
+
+.header__button-menu:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+@media all and (min-width: 320px) and (max-width: 767px) {
+  .header__button-menu {
+    display: block;
+    width: 24px;
+    height: 24px;
+    background-image: url(../../../images/button-menu.svg);
+    background-size: cover;
+  }
+}

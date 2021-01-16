@@ -1,4 +1,4 @@
-.popup__close-button {
+.popup-tooltip__close-button {
   position: absolute;
   top: -41px;
   right: -41px;
@@ -16,15 +16,17 @@
   transition: opacity .1s ease-in-out 0s;
 }
 
-.popup__close-button:hover {
+.popup-tooltip__close-button:hover {
   opacity: 0.6;
   cursor: pointer;
 }
 
 @media all and (max-width: 767px) {
-  .popup__close-button {
-    top: -30px;
-    right: -30px;
+  .popup-tooltip__close-button {
+    background-image: url(../../../images/close-button-mini.svg);
+    top: -50px;
+    right: 50%;
+    margin-right: -15px;
     width: 30px;
     height: 30px;
   }

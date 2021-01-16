@@ -11,11 +11,11 @@
   background-image: url(../../../images/add-button.svg);
   background-repeat: no-repeat;
   background-position: center;
+  transition: opacity .1s ease-in-out 0s;
 }
 
 .profile__add-button:hover {
   opacity: 0.6;
-  transition: opacity .1s ease-in-out 0s;
   cursor: pointer;
 }
 

@@ -12,10 +12,10 @@
   background-image: url(../../../images/trash-button-cap.svg), url(../../../images/trash-button-tub.svg);
   background-position: top center, bottom center;
   background-repeat: no-repeat, no-repeat;
+  transition: opacity .1s ease-in-out 0s;
 }
 
 .element__trash-button:hover {
-  opacity: 0.6;
-  transition: opacity .1s ease-in-out 0s;
+  opacity: 0.6; 
   cursor: pointer;
 }

@@ -1,15 +1,30 @@
+@import url("./_reverse/header_reverse.css");
 @import url("./__logo/header__logo.css");
+@import url("./__container/header__container.css");
+@import url("./__container-opened/header__container-opened.css");
+@import url("./__container-mobile/header__container-mobile.css");
+@import url("./__navlink/header__navlink.css");
+@import url("./__navlink/_menu-opened/header__navlink_menu-opened.css");
+@import url("./__navlink/_signout/header__navlink_signout.css");
+@import url("./__user/header__user.css");
+@import url("./__user/_menu-opened/header__user_menu-opened.css");
+@import url("./__button-menu/header__button-menu.css");
+@import url("./__button-menu/_opened/header__button-menu_opened.css");
+@import url("./__menu-opened/header__menu-opened.css");
 
 .header {
   max-width: 882px;
   margin: 0 auto;
   padding: 45px 0 40px;
+  display: flex;
+  justify-content: space-between;
   border-bottom: 1px solid #545454;
 }
 
 
 @media all and (min-width: 320px) and (max-width: 767px) {
   .header {
+    flex-direction: row;
     max-width: 100vw;
     padding: 28px 8.5vw 32px;
   }

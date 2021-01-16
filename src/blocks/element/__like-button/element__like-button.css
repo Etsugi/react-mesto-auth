@@ -11,10 +11,10 @@
   background-image: url(../../../images/like-button.svg);
   background-repeat: no-repeat;
   background-position: center;
+  transition: opacity .1s ease-in-out 0s;
 }
 
 .element__like-button:hover {
   opacity: 0.6;
-  transition: opacity .1s ease-in-out 0s;
   cursor: pointer;
 }
