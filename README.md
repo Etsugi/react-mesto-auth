@@ -1,7 +1,16 @@
-# Проект: Место-реакт
+# Проект: [Mesto-react](https://etsugi.github.io/react-mesto-auth/)
 
-# https://etsugi.github.io/react-mesto-auth/
+# Описание:
+Данный проект - усовершенствованная, с добавлением регистрации и авторизации, версия проекта [Mesto](https://github.com/Etsugi/mesto-react).
 
-Данный проект - результат дальнейшей работы над проектом Mesto, была добавлена возможность регистрации и авторизации.
-
-В будущем проект будет ещё больше переделан под реакт, вновь заработают уже реализованные(но сломанные при переезде) функции.
+# Используемые технологии:
+* Flex
+* Grid
+* БЭМ
+* Figma
+* JavaScript
+* Webpack
+* React
+* Functional Components
+* Route
+* ProtectedRoute
