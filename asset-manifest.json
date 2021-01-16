@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/react-mesto-auth/static/css/main.73221242.chunk.css",
+    "main.js": "/react-mesto-auth/static/js/main.cdef4f37.chunk.js",
+    "main.js.map": "/react-mesto-auth/static/js/main.cdef4f37.chunk.js.map",
+    "runtime-main.js": "/react-mesto-auth/static/js/runtime-main.97d65838.js",
+    "runtime-main.js.map": "/react-mesto-auth/static/js/runtime-main.97d65838.js.map",
+    "static/js/2.71d36d07.chunk.js": "/react-mesto-auth/static/js/2.71d36d07.chunk.js",
+    "static/js/2.71d36d07.chunk.js.map": "/react-mesto-auth/static/js/2.71d36d07.chunk.js.map",
+    "index.html": "/react-mesto-auth/index.html",
+    "static/css/main.73221242.chunk.css.map": "/react-mesto-auth/static/css/main.73221242.chunk.css.map",
+    "static/js/2.71d36d07.chunk.js.LICENSE.txt": "/react-mesto-auth/static/js/2.71d36d07.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/react-mesto-auth/static/media/update-avatar-pencil.073bac29.svg",
+    "static/media/sign-fail.471086c8.svg": "/react-mesto-auth/static/media/sign-fail.471086c8.svg",
+    "static/media/sign-ok.e004e6e7.svg": "/react-mesto-auth/static/media/sign-ok.e004e6e7.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.97d65838.js",
+    "static/js/2.71d36d07.chunk.js",
+    "static/css/main.73221242.chunk.css",
+    "static/js/main.cdef4f37.chunk.js"
+  ]
+}
