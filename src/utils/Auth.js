@@ -17,8 +17,6 @@ function register(data) {
     }
     return res.status;
   })
-  .catch((err) => 
-    alert(err));
 }; 
 
 function authorize(data) {
@@ -38,8 +36,6 @@ function authorize(data) {
     }
     return res.status;
   })
-  .catch((err) => 
-    alert(err));
 }; 
 
 function checkToken(token) {
@@ -57,8 +53,6 @@ function checkToken(token) {
     }
     return res.status;
   })
-  .catch((err) => 
-    alert(err));
 }
 
 export default {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function Register(props) {
   const [email, setEmail] = React.useState('');
@@ -27,7 +27,7 @@ function Register(props) {
     <input onChange={handlePasswordChange} defaultValue={''} type="password" autoComplete="on" name="password" placeholder="Пароль" 
       className="sign__input" required />
     <button className="sign__button" type="submit">Зарегистрироваться</button>
-    <NavLink to="/sign-in" className="sign__button_dark" type="button">Уже зарегистрированы? Войти</NavLink>
+    <Link to="/sign-in" className="sign__button_dark" type="button">Уже зарегистрированы? Войти</Link>
   </form>
   );
 }

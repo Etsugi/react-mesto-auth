@@ -23,11 +23,11 @@ function App() {
   const history = useHistory();
 
   const [loggedIn, setLoggedIn] = React.useState(false);
-  React.useEffect(() => {
+  React.useLayoutEffect(() => {
     checkAuthorize();
   }, []);
 
-  const [registrationState, setRegistrationState] = React.useState(false);
+  const [tooltipState, setTooltipState] = React.useState([]);
   const [userEmail, setUserEmail] = React.useState('');
 
   const [currentUser, setCurrentUser] = React.useState('');
@@ -85,7 +85,11 @@ function App() {
     }
   }
   function clickRegistration(data) {
-    setRegistrationState(false);
+    setTooltipState({
+      state: false,
+      text: "Что-то пошло не так! Попробуйте ещё раз.",
+      alt: "Иконка неудачной регистрации"
+    })
     auth.register(data)
     .then((data) => {
       if(data === 400) {
@@ -93,7 +97,11 @@ function App() {
         console.log('Некорректно заполнено одно из полей из полей!');
       }
       else {
-        setRegistrationState(true);
+        setTooltipState({
+          state: true,
+          text: "Вы успешно зарегистрировались!",
+          alt: "Иконка успешной регистрации"
+        })
         clickInfoTooltipPopupOpen();
         history.push("/sign-in");
       }
@@ -232,17 +240,16 @@ function App() {
         <Route path="/sign-up">
           <Register 
             onRegistration={clickRegistration}
-            
           />
         </Route>
         <Route path="/sign-in">
           <Login 
             onAuthorization={clickAutorization}
-            
           />
         </Route>
         <ProtectedRoute
           path="/"
+          redirect="/sign-in"
           loggedIn={loggedIn}
           component={Main}
           profile={profile}
@@ -258,10 +265,9 @@ function App() {
       <Footer />
       
       <InfoTooltip
-        registrationState={registrationState}
+        tooltipState={tooltipState}
         isOpen={isInfoTooltipPopupOpen} 
         onClose={closeAllPopups}
-        
       />
       <EditProfilePopup 
         isOpen={isEditProfilePopupOpen} 
