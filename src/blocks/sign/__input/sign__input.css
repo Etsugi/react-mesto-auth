@@ -2,7 +2,7 @@
   max-width: 358px;
   width: 83vw;
   padding: 13px 0 13px;
-  margin: 0 auto;
+  margin: 17px auto 0;
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
@@ -14,8 +14,8 @@
   outline: none;
 }
 
-.sign__input+.sign__input {
-  margin-top: 17px;
+.sign__input:first-child {
+  margin-top: 0;
 }
 
 @media all and (min-width: 320px) and (max-width: 767px) {

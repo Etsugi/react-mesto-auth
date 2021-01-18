@@ -23,7 +23,7 @@ function App() {
   const history = useHistory();
 
   const [loggedIn, setLoggedIn] = React.useState(false);
-  React.useLayoutEffect(() => {
+  React.useEffect(() => {
     checkAuthorize();
   }, []);
 

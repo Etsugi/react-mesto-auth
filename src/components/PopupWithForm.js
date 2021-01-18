@@ -1,4 +1,5 @@
 function PopupWithForm(props) {
+
   return (
     <div className={`popup ${props.isOpen && 'popup_opened'}`} id={props.name}>
       <form onSubmit={props.onSubmit} className="popup__form" name={props.name} noValidate>
