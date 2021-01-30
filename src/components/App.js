@@ -100,6 +100,9 @@ function App() {
       if(data === 400) {
         setInfoTooltipPopupOpen(true);
         console.log('Некорректно заполнено одно из полей из полей!');
+      }if(data === 409) {
+        setInfoTooltipPopupOpen(true);
+        console.log('Некорректно заполнено одно из полей из полей!');
       }
       else {
         setTooltipState({
@@ -116,6 +119,11 @@ function App() {
     });
   }
   function clickAutorization(data) {
+    setTooltipState({
+      state: false,
+      text: "Что-то пошло не так! Попробуйте ещё раз.",
+      alt: "Иконка неудачной авторизации"
+    })
     auth.authorize(data)
     .then((data) => {
       if(data === 400) {
