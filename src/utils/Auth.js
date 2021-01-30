@@ -1,4 +1,4 @@
-const BASE_URL = 'https://api.kiprin.students.nomoredomains.icu/';
+const BASE_URL = 'https://api.kiprin.students.nomoredomains.icu';
 
 function register(data) {
   return fetch(`${BASE_URL}/signup`, {
@@ -44,7 +44,7 @@ function checkToken(token) {
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
-      "Authorization" : `Bearer ${token}`
+      'Authorization' : `Bearer ${token}`
     }
   })
   .then((res) => {

@@ -10,7 +10,7 @@ class Api {
       method: 'GET',
       headers: {
         ...this._headers,
-        "Authorization" : `Bearer ${token}`
+        'Authorization' : `Bearer ${token}`
       },
     }).then((res) => {
       return this._getResponseData(res);
@@ -22,7 +22,7 @@ class Api {
       method: 'PATCH',
       headers: {
         ...this._headers,
-        "Authorization" : `Bearer ${token}`
+        'Authorization' : `Bearer ${token}`
       },
       body: JSON.stringify({
         name: data.name,
@@ -38,7 +38,7 @@ class Api {
       method: 'PATCH',
       headers: {
         ...this._headers,
-        "Authorization" : `Bearer ${token}`
+        'Authorization' : `Bearer ${token}`
       },
       body: JSON.stringify({
         avatar: data.avatar
@@ -53,7 +53,7 @@ class Api {
       method: 'GET',
       headers: {
         ...this._headers,
-        "Authorization" : `Bearer ${token}`
+        'Authorization' : `Bearer ${token}`
       },
     }).then((res) => {
       return this._getResponseData(res);
@@ -65,7 +65,7 @@ class Api {
       method: 'POST',
       headers: {
         ...this._headers,
-        "Authorization" : `Bearer ${token}`
+        'Authorization' : `Bearer ${token}`
       },
       body: JSON.stringify({
         name: data.name,
@@ -81,7 +81,7 @@ class Api {
       method: 'DELETE',
       headers: {
         ...this._headers,
-        "Authorization" : `Bearer ${token}`
+        'Authorization' : `Bearer ${token}`
       },
       body: JSON.stringify({
       })
@@ -90,21 +90,21 @@ class Api {
     })
   }
 
-  changeLikeCardStatus(cardId, isLiked) {
+  changeLikeCardStatus(cardId, isLiked, token) {
     if(isLiked) {
-      return this.disLikeCard(cardId);
+      return this.disLikeCard(cardId, token);
     }
     else {
-      return this.likeCard(cardId);
+      return this.likeCard(cardId, token);
     }
   }
 
   likeCard(cardId, token) {
-    return fetch(`${this._url}/cards/likes/${cardId}`, {
+    return fetch(`${this._url}/cards/${cardId}/likes`, {
       method: 'PUT',
       headers: {
         ...this._headers,
-        "Authorization" : `Bearer ${token}`
+        'Authorization' : `Bearer ${token}`
       },
     }).then((res) => {
       return this._getResponseData(res);
@@ -112,11 +112,11 @@ class Api {
   }
 
   disLikeCard(cardId, token) {
-    return fetch(`${this._url}/cards/likes/${cardId}`, {
+    return fetch(`${this._url}/cards/${cardId}/likes`, {
       method: 'DELETE',
       headers: {
         ...this._headers,
-        "Authorization" : `Bearer ${token}`
+        'Authorization' : `Bearer ${token}`
       },
     }).then((res) => {
       return this._getResponseData(res);
@@ -129,14 +129,10 @@ class Api {
     }
     else return Promise.reject(`Ошибка: ${res.status}`);
   }
-
-  /*getAllData() {
-    return Promise.all([this.getUserInfo(), this.getCards()]);
-  }*/
 }
 
 const api = new Api({
-  baseUrl: 'https://api.kiprin.students.nomoredomains.icu/',
+  baseUrl: 'https://api.kiprin.students.nomoredomains.icu',
   headers: {
     'Content-Type': 'application/json'
   }

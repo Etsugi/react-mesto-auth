@@ -20,7 +20,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "npm run build && scp -r ./build/* kiprin@130.193.50.220:/home/kiprin/react-mesto-auth" 
+    "deploy": "npm run build && scp -r ./build/* kiprin@130.193.50.220:/home/kiprin/react-mesto-api-full/frontend" 
   },
   "author": "Konstantin Kiprin",
   "description": "Project Mesto on react",

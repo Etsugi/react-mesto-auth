@@ -22,22 +22,26 @@ import auth from '../utils/Auth.js';
 function App() {
   const history = useHistory();
 
+  const [token, setToken] = React.useState('');
   const [loggedIn, setLoggedIn] = React.useState(false);
   React.useEffect(() => {
     checkAuthorize();
   }, []);
 
   function checkAuthorize() {
+    const token = localStorage.getItem('jwt');
     if (localStorage.getItem('jwt')){
-      const token = localStorage.getItem('jwt');
+      setToken(token);
       auth.checkToken(token)
       .then((data) => {
         if(data === 401) {
           console.log("Токен не передан или передан не в том формате!");
         }
         else {
+          initialCurrentUser(token);
+          initialCards(token);
           setLoggedIn(true);
-          setUserEmail(data.data.email);
+          setUserEmail(data.email);
           history.push("/");
         }
       })
@@ -48,8 +52,10 @@ function App() {
   const [userEmail, setUserEmail] = React.useState('');
 
   const [currentUser, setCurrentUser] = React.useState('');
-  React.useEffect(() => {
-    const initialCurrentUser = api.getUserInfo();
+  const [cards, setCards] = React.useState([]);
+
+  function initialCurrentUser(token) {
+    const initialCurrentUser = api.getUserInfo(token);
     initialCurrentUser.then((data => {
       const userData = data;
       setCurrentUser(userData);
@@ -61,11 +67,9 @@ function App() {
     .catch((err) => {
       alert(err);
     });
-  }, [])
-
-  const [cards, setCards] = React.useState([]);
-  React.useEffect(() => {
-    const initialCard = api.getCards();
+  }
+  function initialCards(token) {
+    const initialCard = api.getCards(token);
     initialCard.then((data => {
       const card = data;
       setCards(card);
@@ -74,7 +78,7 @@ function App() {
     .catch((err) => {
       alert(err);
     });
-  }, [])
+  }
 
   const [profile, setProfile] = React.useState('content content-disabled');
   const [isInfoTooltipPopupOpen, setInfoTooltipPopupOpen] = React.useState(false);
@@ -132,6 +136,7 @@ function App() {
     });
   }
   function clickSignOut() {
+    setToken('');
     setLoggedIn(false);
     localStorage.removeItem('jwt');
     history.push('/sign-in');
@@ -166,7 +171,7 @@ function App() {
   }
 
   function handleUpdateUser(userData) {
-    api.updateUserInfo(userData).then((userData) => {
+    api.updateUserInfo(userData, token).then((userData) => {
       setCurrentUser(userData);
     })
     .then(() => {
@@ -179,7 +184,7 @@ function App() {
   }
 
   function handleUpdateAvatar(userData) {
-    api.updateUserAvatar(userData).then((userData) => {
+    api.updateUserAvatar(userData, token).then((userData) => {
       setCurrentUser(userData);
     })
     .then(() => {
@@ -192,7 +197,7 @@ function App() {
 
   function handleCardLike(card) {
     const isLiked = card.likes.some(i => i._id === currentUser._id);
-    api.changeLikeCardStatus(card._id, isLiked).then((newCard) => {
+    api.changeLikeCardStatus(card._id, isLiked, token).then((newCard) => {
       const newCards = cards.map((c) => c._id === card._id ? newCard : c);
       setCards(newCards);
     })
@@ -206,7 +211,7 @@ function App() {
   }
 
   function handleCardDelete(card) {
-    api.deleteCard(card).then(() => {
+    api.deleteCard(card, token).then(() => {
       const newCards = cards.filter((item) => !(item._id === card._id));
       setCards(newCards);
     })
@@ -219,7 +224,7 @@ function App() {
   } 
 
   function handleAddPlace(card) {
-    api.addCard(card).then((card) => {
+    api.addCard(card, token).then((card) => {
       setCards([card, ...cards]);
     })
     .then(() => {
