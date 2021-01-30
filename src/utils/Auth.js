@@ -1,4 +1,4 @@
-const BASE_URL = 'https://auth.nomoreparties.co';
+const BASE_URL = 'https://api.kiprin.students.nomoredomains.icu/';
 
 function register(data) {
   return fetch(`${BASE_URL}/signup`, {

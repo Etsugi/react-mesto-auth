@@ -27,6 +27,23 @@ function App() {
     checkAuthorize();
   }, []);
 
+  function checkAuthorize() {
+    if (localStorage.getItem('jwt')){
+      const token = localStorage.getItem('jwt');
+      auth.checkToken(token)
+      .then((data) => {
+        if(data === 401) {
+          console.log("Токен не передан или передан не в том формате!");
+        }
+        else {
+          setLoggedIn(true);
+          setUserEmail(data.data.email);
+          history.push("/");
+        }
+      })
+    }
+  }
+
   const [tooltipState, setTooltipState] = React.useState([]);
   const [userEmail, setUserEmail] = React.useState('');
 
@@ -68,22 +85,6 @@ function App() {
   const [selectedCard, setSelectedCard] = React.useState('');
   const [confirmElement, setConfirmElement] = React.useState('');
 
-  function checkAuthorize() {
-    if (localStorage.getItem('jwt')){
-      const jwt = localStorage.getItem('jwt');
-      auth.checkToken(jwt)
-      .then((data) => {
-        if(data === 401) {
-          console.log("Токен не передан или передан не в том формате!");
-        }
-        else {
-          setLoggedIn(true);
-          setUserEmail(data.data.email);
-          history.push("/");
-        }
-      })
-    }
-  }
   function clickRegistration(data) {
     setTooltipState({
       state: false,
